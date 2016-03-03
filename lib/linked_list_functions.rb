@@ -59,6 +59,7 @@ def list_min(list)
   data
 end
 
+<<<<<<< HEAD
 def list_max(list)
   return nil unless list.head
   data = list.head.data
@@ -69,6 +70,8 @@ def list_max(list)
 
   data
 end
+=======
+>>>>>>> 4f7ac77986bea4983430d108c2ca8f4b66fcf10a
 
 def list_at(list, index)
   return nil unless list.head
@@ -118,4 +121,6 @@ def list_insert(list, index, data)
     # list
   end
   list
+end
+def node_insert(node, index, data)
 end
