@@ -20,13 +20,11 @@ def list_unshift(list, data)
 end
 
 def list_each(list, &block)
-  node = list.head
+  return list unless list.head
 
-  while node
-    block.call(node)
-    node = node.link
-  end
-  node
+  yield list.head
+  list.head = list.head.link
+  list_each(list, &block)
 end
 
 def list_size(list)
@@ -78,13 +76,15 @@ def list_at(list, index)
     data << node.data
   end
 
+  require "pry"
+  binding.pry
   data[index]
 end
 
-def list_shovel(list, list_data)
+def list_shovel(list, data)
 
   list_each(list) do |node|
-    node.link = Node.new(list_data, nil)
+    node.link = Node.new(data, nil)
   end
 
   self
@@ -106,7 +106,9 @@ def list_insert(list, index, data)
     list.head = nil
     i = 0
     while i < list_data.length
-      list_shovel(list, list_data[i])
+      require "pry"
+      binding.pry
+      list_shovel(list.head, list_data[i])
       i += 1
     end
     list
