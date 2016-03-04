@@ -55,11 +55,10 @@ def list_min(list)
 
   list_each(list) do |node|
     data = node.data if data > node.data
-    end
+  end
   data
 end
 
-<<<<<<< HEAD
 def list_max(list)
   return nil unless list.head
   data = list.head.data
@@ -70,57 +69,51 @@ def list_max(list)
 
   data
 end
-=======
->>>>>>> 4f7ac77986bea4983430d108c2ca8f4b66fcf10a
 
 def list_at(list, index)
   return nil unless list.head
+  data = []
 
   list_each(list) do |node|
-    node if node && index != (1 || 0)
-      index -= 1
+    data << node.data
   end
 
-  if index.even?
-    node && node.data
-  else
-    node && node.link
-  end
+  data[index]
 end
 
+def list_shovel(list, list_data)
+
+  list_each(list) do |node|
+    node.link = Node.new(list_data, nil)
+  end
+
+  self
+end
 
 def list_insert(list, index, data)
-  if index == 0
-    list.head = Node.new(data, list.head)
-    list
-  else
-    node = list.head
-    node_data = []
+  return list.head = Node.new(data, nil) unless list.head
 
-    while node || index > 0
-      if node
-        node_data << node.data
-      else
-        node_data << nil
-      end
-      node = node.link
+  if index == 0
+    list_unshift(list, data)
+  else
+    list_data = []
+
+    list_each(list) do |node|
+      list_data << node.data
     end
 
-    node = Node.new(nil, nil)
-
-    # new_head = Node.new(node.data, nil)
-
-    # while index > 0
-      # new_head.link = Node.new(node.data, nil)
-      # node = node.link
-      # index -= 1
-    # end
-
-    # new_head.link.link = Node.new(data, node)
-    # list.head = new_head
-    # list
+    list_data.insert(index, data)
+    list.head = nil
+    i = 0
+    while i < list_data.length
+      list_shovel(list, list_data[i])
+      i += 1
+    end
+    list
   end
+
   list
 end
+
 def node_insert(node, index, data)
 end
