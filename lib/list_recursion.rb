@@ -30,11 +30,11 @@ class NilNode
   end
 
   def empty?
-    data == nil
+    true
   end
 
   def nil?
-    data == nil
+    true
   end
 
   def [](pos)
@@ -63,12 +63,10 @@ class NormalNode
   end
 
   def min
+    last_data = data
     return data if link.nil?
-    if data < link.min
-      data
-    else
-      link.data
-    end
+    last_data
+    link.min
   end
 
   def max
@@ -80,15 +78,27 @@ class NormalNode
   end
 
   def last
-    data
+    return data if link.nil?
+    link.last
   end
 
   def empty?
-    data == nil
+    false
   end
 
   def nil?
-    data == nil
+    false
   end
 
+  def [](pos)
+    return data if pos == 0
+    pos -= 1
+    link[pos]
+  end
+
+  def insert(pos, data)
+    return NormalNode.new(data, self) unless pos > 0
+    pos -= 1
+    link.insert(pos, data)
+  end
 end
