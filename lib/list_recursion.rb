@@ -62,15 +62,22 @@ class NormalNode
     link.length + 1
   end
 
-  def min
-    last_data = data
-    return data if link.nil?
-    last_data
-    link.min
+  def min(min_data = data)
+    return min_data if link.nil?
+    if data < min_data
+      link.min
+    else
+      link.min(min_data)
+    end
   end
 
-  def max
-    data
+  def max(max_data = data)
+    return max_data if link.nil?
+    if data > max_data
+      link.min
+    else
+      link.min(min_data)
+    end
   end
 
   def first

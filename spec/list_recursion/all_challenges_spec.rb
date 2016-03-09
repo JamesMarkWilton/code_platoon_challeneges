@@ -122,36 +122,36 @@ RSpec.describe 'list recursion' do
         assert_equal 2, node_ab.length
       end
     end
-    # describe 'min' do
-      # it 'returns its data when its link is a NilNode' do
-        # assert_equal 'b', node_b.min
-      # end
-      # it 'returns its data when its data is less than its links data' do
-        # assert_equal 'a', node_ab.min
-      # end
-      # it 'returns its links data when its links data is less than its data' do
-        # assert_equal 'b', node_cb.min
-      # end
-      # it 'does not depend on its link\'s data for verifying correctness' do
-        # node = NormalNode.new('a', NormalNode.new(nil, nil_node))
-        # expect { node.min }.to raise_error ArgumentError, /nil/
-      # end
-    # end
-    # describe 'max' do
-      # it 'returns its data when its link is a NilNode' do
-        # assert_equal 'b', node_b.max
-      # end
-      # it 'returns its data when its data is greater than its links data' do
-        # assert_equal 'b', node_ab.max
-      # end
-      # it 'returns its links data when its links data is greater than its data' do
-        # assert_equal 'c', node_cb.max
-      # end
-      # it 'does not depend on its link\'s data for verifying correctness' do
-        # node = NormalNode.new('a', NormalNode.new(nil, nil_node))
-        # expect { node.min }.to raise_error ArgumentError, /nil/
-      # end
-    # end
+    describe 'min' do
+      it 'returns its data when its link is a NilNode' do
+        assert_equal 'b', node_b.min
+      end
+      it 'returns its data when its data is less than its links data' do
+        assert_equal 'a', node_ab.min
+      end
+      it 'returns its links data when its links data is less than its data' do
+        assert_equal 'b', node_cb.min
+      end
+      it 'does not depend on its link\'s data for verifying correctness' do
+        node = NormalNode.new('a', NormalNode.new(nil, nil_node))
+        expect { node.min }.to raise_error ArgumentError, /nil/
+      end
+    end
+    describe 'max' do
+      it 'returns its data when its link is a NilNode' do
+        assert_equal 'b', node_b.max
+      end
+      it 'returns its data when its data is greater than its links data' do
+        assert_equal 'b', node_ab.max
+      end
+      it 'returns its links data when its links data is greater than its data' do
+        assert_equal 'c', node_cb.max
+      end
+      it 'does not depend on its link\'s data for verifying correctness' do
+        node = NormalNode.new('a', NormalNode.new(nil, nil_node))
+        expect { node.min }.to raise_error ArgumentError, /nil/
+      end
+    end
     specify '#first returns its data' do
       assert_equal 'b', node_b.first
       assert_equal 'a', node_ab.first
