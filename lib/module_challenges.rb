@@ -101,8 +101,6 @@ class MahMixin::User
     final_result = result == 0
 
     unless final_result
-      require "pry"
-      binding.pry
       final_result = self.name <=> other_user.name
     end
 

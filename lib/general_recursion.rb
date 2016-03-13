@@ -1,6 +1,5 @@
 # If you have difficulty, here is a video talking about recursion:
 # https://vimeo.com/24716767
-
 def fib(n)
   return n if (n == 0 || n == 1)
   fib(n - 1) + fib(n - 2)
@@ -12,15 +11,14 @@ def two_to_the(n)
   2 * two_to_the(n - 1)
 end
 
-
 # Given an array of rows, call the block for each element,
 # in "spiral order":
 #   ie top row, right col, bottom row, left col
 #   then in to the next spiral
 #   https://rooksheathscience.files.wordpress.com/2014/11/image_thumb449.png?w=267&h=206
-#
+
 # Hint: this is in the recursion section
-#
+
 # two_d = [
 #   [ 1,  2,  3,  4, 5],
 #   [16, 17, 18, 19, 6],
@@ -39,3 +37,8 @@ def spiral_access(rows, &block)
     end
   end
 end
+
+two_to_the(3)
+two_to_the(34)
+two_to_the(4)
+two_to_the(10)
