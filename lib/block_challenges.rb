@@ -24,86 +24,6 @@ def yield_first(array, &block)
   yield array[0]
 end
 
-def yield_em_all(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_two(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_three(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_four(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_five(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_six(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_seven(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_eight(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_nine(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
-def yield_ten(array, &block)
-  i = 0
-  while array[i]
-    yield array[i]
-    i += 1
-  end
-end
-
 # This receives a PrimitiveArray, which is a class I made that only
 # has brackets and length, so you'll have to solve it the way you
 # would in a language like C, which doesn't have real arrays
@@ -114,6 +34,26 @@ def yield_with_while_loop(array, &block)
     i += 1
   end
 end
+
+alias yield_em_all yield_with_while_loop
+
+alias yield_two yield_with_while_loop
+
+alias yield_three yield_with_while_loop
+
+alias yield_four yield_with_while_loop
+
+alias yield_five yield_with_while_loop
+
+alias yield_six yield_with_while_loop
+
+alias yield_seven yield_with_while_loop
+
+alias yield_eight yield_with_while_loop
+
+alias yield_nine yield_with_while_loop
+
+alias yield_ten yield_with_while_loop
 
 # This receives an ArrayWithOnlyEach, which, you may have guessed,
 # only has the each method. Your solution will have to work in terms
